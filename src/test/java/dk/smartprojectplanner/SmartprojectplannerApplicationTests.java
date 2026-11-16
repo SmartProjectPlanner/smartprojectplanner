@@ -1,4 +1,4 @@
-package dk.smartprojektplaner;
+package dk.smartprojectplanner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,7 +6,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class SmartprojektplanerApplicationTests {
+class SmartprojectplannerApplicationTests {
 
 	@Test
 	void contextLoads() {
