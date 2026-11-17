@@ -1,2 +1,2 @@
-# smartprojektplaner
+# smartprojectplanner
 Eksamens Projekt
