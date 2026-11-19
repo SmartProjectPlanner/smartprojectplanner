@@ -1,0 +1,26 @@
+name: PR description
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  pr-description:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = (context.payload.pull_request.body || '')
+              .replace(/<!--[\s\S]*?-->/g, '');
+            const sections = ['Problem', 'Solution', 'How to test', 'Scope'];
+            const missing = [];
+            for (const name of sections) {
+              const re = new RegExp('^##\\s+' + name + '\\s*\\n([\\s\\S]*?)(?=^##\\s|$(?![\\s\\S]))', 'im');
+              const m = body.match(re);
+              const text = m ? m[1].replace(/[\s\d.\-*]/g, '') : '';
+              if (!text) missing.push(name);
+            }
+            if (missing.length) {
+              core.setFailed('Fill out these sections in the PR description: ' + missing.join(', '));
+            }
