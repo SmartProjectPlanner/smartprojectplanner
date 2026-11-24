@@ -17,12 +17,12 @@ public class ProjectManagerController {
     @GetMapping
     public String showRegisterForm() {
 
-
+        return "1";
     }
 
     @PostMapping
     public String register() {
 
-
+        return "2";
     }
 }
