@@ -40,6 +40,11 @@ public class ProjectManagerController {
         return "login";
     }
 
+    /**
+     * Shows the dashboard for an authenticated project manager
+     *
+     * @return the name of the dashboard view
+     */
     @GetMapping("/dashboard")
     public String showDashboard() {
         return "dashboard";
