@@ -40,6 +40,11 @@ public class ProjectManagerController {
         return "login";
     }
 
+    @GetMapping("/dashboard")
+    public String showDashboard() {
+        return "dashboard";
+    }
+
     /**
      *Authenticates a project manager and stores their ID in the session
      *
