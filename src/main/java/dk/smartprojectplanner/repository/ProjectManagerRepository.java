@@ -13,12 +13,6 @@ import java.util.Optional;
 @Repository
 public class ProjectManagerRepository {
 
-    private static final String FIND_BY_EMAIL = """
-            SELECT id, name, email, password
-            FROM project_manager
-            WHERE email = ?
-            """;
-
     private final JdbcTemplate jdbcTemplate;
 
     /**
@@ -42,7 +36,11 @@ public class ProjectManagerRepository {
      */
     public Optional<ProjectManager> findByEmail(String email) {
         List<ProjectManager> projectManagers = jdbcTemplate.query(
-                FIND_BY_EMAIL,
+            """
+            SELECT id, name, email, password
+            FROM project_manager
+            WHERE email = ?
+            """,
                 (resultSet, rowNum) -> new ProjectManager(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),

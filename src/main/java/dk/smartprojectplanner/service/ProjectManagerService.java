@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectManagerService {
 
-    private static final String INVALID_LOGIN_MESSAGE = "Invalid email or password";
-
     private final ProjectManagerRepository projectManagerRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
@@ -46,13 +44,13 @@ public class ProjectManagerService {
         ProjectManager projectManager = projectManagerRepository
                 .findByEmail(email)
                 .orElseThrow(() ->
-                        new IllegalArgumentException(INVALID_LOGIN_MESSAGE)
+                        new IllegalArgumentException("Invalid email or password")
                 );
         if (!passwordEncoder.matches(
                 password,
                 projectManager.getPassword()
         )) {
-            throw new IllegalArgumentException(INVALID_LOGIN_MESSAGE);
+            throw new IllegalArgumentException("Invalid email or password");
         }
         return projectManager;
     }
