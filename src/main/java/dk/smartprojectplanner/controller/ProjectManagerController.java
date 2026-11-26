@@ -14,13 +14,13 @@ public class ProjectManagerController {
         this.projectManagerService = projectManagerService;
     }
 
-    @GetMapping
+    @GetMapping("/registerForm")
     public String showRegisterForm() {
 
         return "1";
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public String register() {
 
         return "2";
