@@ -14,15 +14,15 @@ public class ProjectManagerController {
         this.projectManagerService = projectManagerService;
     }
 
-    @GetMapping
-    public String showRegisterForm() {
-
-        return "1";
-    }
-
-    @PostMapping
-    public String register() {
-
-        return "2";
-    }
+//    @GetMapping
+//    public String showRegisterForm() {
+//
+//        return "1";
+//    }
+//
+//    @PostMapping
+//    public String register() {
+//
+//        return "2";
+//    }
 }
