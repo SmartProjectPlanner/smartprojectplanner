@@ -1,5 +1,7 @@
 package dk.smartprojectplanner.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 
@@ -12,10 +14,22 @@ public class Project {
     private int projectManagerId;
     private String title;
     private String description;
+
+    // The browsers date field sends dates as åååå-mm-dd, so Spring needs to know
+    // that the format is ISO (International Organization for Standardization)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate deadline;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate startDate;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate endDate;
+
     private String shareToken;
+
+
+
 
     /**
      * Creates a project with all fields, used when reading a row from the database.
