@@ -18,7 +18,7 @@ class HomeControllerTest {
     private MockMvc mockMvc;
 
     //Testen benytter showHomePage() controlleren og tjekker at vi får en HTTP status OK
-    // og at vi viewer HTML filen "index" når der sendes en getRequest
+    // og at vi viewer HTML filen "index" når der sendes en getRequest til endpointet ("/").
     @Test
     void showHomePage() throws Exception {
         mockMvc.perform(get("/"))
