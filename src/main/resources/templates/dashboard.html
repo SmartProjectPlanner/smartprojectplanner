@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Project Planner</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a th:href="@{/}"> Smart Project Planner</a>
+    <a th:href="@{/dashboard}" class="navbar button"> Dashboard</a>
+    <a th:href="@{/projects}" class="navbar-button"> Projects</a>
+    <a th:href="@{/associates}" class="navbar-button"> Associate</a>
+    <a th:href="@{/logout}" class="navbar-button">Logout</a>
+</nav>
+
+<!-- Vores dashboards hovedindhold -->
+<main>
+    <section class="dashboard-intro">
+        <div>
+            <span>My Dashboard</span>
+            <h1>Projects</h1>
+            <p>
+                Welcome back!
+                Here you can create, organize and administrate your projects.
+                Create a project to get started - or click one of your existing projects to manage it.
+            </p>
+        </div>
+
+        <div>
+            <a th:href="@{/projects/create}" class="dashboard-button"> Create Project</a>
+        </div>
+    </section>
+
+</main>
+<footer class="footer">
+    <p>&copy; Smart Project Planner 2026</p>
+    <p>Email: smp@servicedesk.com </p>
+    <p>Phone: +45 00 00 00 00 </p>
+</footer>
+</body>
+</html>
