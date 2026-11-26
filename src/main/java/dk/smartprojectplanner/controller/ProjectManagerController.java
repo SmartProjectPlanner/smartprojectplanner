@@ -68,7 +68,26 @@ public class ProjectManagerController {
                     "errorMessage", exception.getMessage()
             );
             return "redirect:/login";
-
         }
+    }
+
+    /**
+     * Logs out the project manager and ends the current session
+     *
+     * @param session the current user's session
+     * @param redirectAttributes attributes available after the redirect
+     * @return a redirect to the login page
+     */
+    @PostMapping("/logout")
+    public String logout(
+            HttpSession session,
+            RedirectAttributes redirectAttributes
+    ) {
+        session.invalidate();
+
+        redirectAttributes.addFlashAttribute(
+                "successMessage", "You have been logged out"
+        );
+        return "redirect:/login";
     }
 }
