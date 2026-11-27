@@ -12,6 +12,10 @@ public abstract class Employee {
         this.email = email;
     }
 
+    public Employee() {
+
+    }
+
     public int getId() {
         return id;
     }
