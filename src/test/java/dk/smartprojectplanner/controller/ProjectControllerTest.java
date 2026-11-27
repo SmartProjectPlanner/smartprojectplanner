@@ -33,7 +33,8 @@ class ProjectControllerTest {
      */
     @Test
     void showCreateForm_returnsCreateProjectViewWithEmptyProject() throws Exception {
-        mockMvc.perform(get("/projects/create"))
+        mockMvc.perform(get("/projects/create")
+                .sessionAttr("userId",1))
                 .andExpect(status().isOk())
                 .andExpect(view().name("createproject"))
                 .andExpect(model().attributeExists("project"));
@@ -47,6 +48,7 @@ class ProjectControllerTest {
     @Test
     void createProject_validInput_savesAndRedirectsToDashboard() throws Exception {
         mockMvc.perform(post("/projects/create")
+                        .sessionAttr("userId",1)
                 .param("title", "Mit projekt")
                 .param("description", "En Beskrivelse")
                 .param("startDate", "2026-12-05")
@@ -66,7 +68,8 @@ class ProjectControllerTest {
                 .when(projectService).createProject(any(Project.class));
 
         mockMvc.perform(post("/projects/create")
-                .param("title", "")
+                        .sessionAttr("userId",1)
+                        .param("title", "")
                 .param("startDate", "2026-12-05")
                 .param("deadline", "2026-12-31"))
                 .andExpect(status().isOk())
