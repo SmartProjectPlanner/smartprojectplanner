@@ -9,6 +9,10 @@ public class ProjectManager extends Employee {
         this.password = password;
     }
 
+    public ProjectManager() {
+
+    }
+
     public String getPassword() {
         return password;
     }
