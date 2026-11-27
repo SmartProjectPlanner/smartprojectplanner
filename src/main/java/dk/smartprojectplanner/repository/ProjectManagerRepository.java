@@ -63,7 +63,7 @@ public class ProjectManagerRepository {
         String sql = """
                INSERT INTO project_manager (name, email, password)
                VALUES(?,?,?)      
-                """;
+               """;
 
         return jdbcTemplate.update(sql, projectManager.getName(), projectManager.getEmail(), hashedPassword);
     }
@@ -72,8 +72,7 @@ public class ProjectManagerRepository {
      * Finds a project manager in database with id
      *
      * @param id project manager id from service class
-     * @return project manager object with selected id
-     * @return null if exception happens
+     * @return project manager object with selected id or if exception happen return null
      */
     public ProjectManager findById(int id) {
 
