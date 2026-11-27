@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Project Planner</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a th:href="@{/}"> Smart Project Planner</a>
+    <a th:href="@{/login}" class="navbar-button">Login</a>
+</nav>
+
+<!-- Vores hovedindhold -->
+<main>
+    <section class="home-intro">
+        <!-- knapper -->
+        <div class="home-buttons">
+            <a href="/register" class="button">Create User</a>
+            <a href="/login" class="button">Login</a>
+        </div>
+
+        <div class="home-image">
+            <img th:src="@{/images/forside.jpg}" alt="Nick der snuser til Villas sko">
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; Smart Project Planner 2026</p>
+    <p>Email: smp@servicedesk.com </p>
+    <p>Phone: +45 00 00 00 00 </p>
+</footer>
+</body>
+</html>

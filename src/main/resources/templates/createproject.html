@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret Projekt - Smart Project Planner</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<nav class="navbar">
+  <a th:href="@{/}"> Smart Project Planner</a>
+</nav>
+
+<main>
+    <h1>Opret Projekt</h1>
+
+    <form th:action="@{/projects/create}" th:object="${project}" method="post">
+        <p th:if="${error}" th:text="${error}" class="error"></p>
+
+        <label for="title">Titel</label>
+        <input type="text" id="title" th:field="*{title}">
+
+        <label for="description">Beskrivelse</label>
+        <textarea id="description" th:field="*{description}"></textarea>
+
+        <label for="startDate">Startdato</label>
+        <input type="date" id="startDate" th:field="*{startDate}">
+
+        <label for="deadline">Deadline</label>
+        <input type="date" id="deadline" th:field="*{deadline}">
+
+        <button type="submit" class="button">Opret projekt</button>
+    </form>
+</main>
+
+<footer class="footer">
+  <p>&copy; Smart Project Planner 2026</p>
+</footer>
+</body>
+</html>

@@ -5,6 +5,9 @@ import dk.smartprojectplanner.repository.ProjectManagerRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Handles business logic for registration and authentication projectmanagers
+ */
 @Service
 public class ProjectManagerService {
 
@@ -49,5 +52,27 @@ public class ProjectManagerService {
         }
     }
 
+    /**
+     * Authenticates a project manager using an email and password
+     *
+     * @param email email form user input
+     * @param password plain-text password from user input
+     * @return the authenticated project manager
+     * @throws IllegalArgumentException if the login-information is incorrect
+     */
+    public ProjectManager login(String email, String password) {
+        ProjectManager projectManager = projectManagerRepository
+                .findByEmail(email)
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid email or password")
+                );
+        if (!passwordEncoder.matches(
+                password,
+                projectManager.getPassword()
+        )) {
+            throw new IllegalArgumentException("Invalid email or password");
+        }
+        return projectManager;
+    }
 
 }

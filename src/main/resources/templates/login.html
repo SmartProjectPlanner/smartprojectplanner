@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Smart Project Planner</title>
+    <link rel="stylesheet" th:href = "@{/style.css}">
+</head>
+<body>
+
+<nav class="navbar">
+    <a th:href="@{/}">Smart Project Planner</a>
+    <a th:href="@{/registerForm}">Create User</a>
+</nav>
+
+<main>
+    <h1>Login</h1>
+
+    <p
+        th:if="${successMessage}"
+        th:text="${successMessage}">
+    </p>
+
+    <p
+        th:if="${errorMessage}"
+        th:text="${errorMessage}">
+    </p>
+
+    <form th:action="@{/login}" method="post">
+        <p>
+            <label for="email">Email</label>
+            <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required>
+        </p>
+
+        <p>
+            <label for="password">Password</label>
+            <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required>
+        </p>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        Don't have an account?
+        <a th:href="@{/registerForm}">Create user</a>
+    </p>
+</main>
+
+<footer class="footer">
+    <p>&copy; Smart Project Planner 2026</p>
+    <p>Email: smp@servicedesk.com </p>
+    <p>Phone: +45 00 00 00 00 </p>
+</footer>
+
+</body>
+</html>
