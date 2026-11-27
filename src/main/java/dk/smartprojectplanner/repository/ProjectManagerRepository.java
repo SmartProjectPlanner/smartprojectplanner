@@ -36,8 +36,8 @@ public class ProjectManagerRepository {
      */
     public boolean emailExists(ProjectManager projectManager) {
         String sql = """
-                SELECT email 
-                FROM project_manager                  
+                SELECT email
+                FROM project_manager
                 """;
         List<String> emails = jdbcTemplate.query(sql, (rs, rowNum) -> rs.getString("email"));
 
@@ -62,7 +62,7 @@ public class ProjectManagerRepository {
 
         String sql = """
                INSERT INTO project_manager (name, email, password)
-               VALUES(?,?,?)      
+               VALUES(?,?,?)
                """;
 
         return jdbcTemplate.update(sql, projectManager.getName(), projectManager.getEmail(), hashedPassword);
