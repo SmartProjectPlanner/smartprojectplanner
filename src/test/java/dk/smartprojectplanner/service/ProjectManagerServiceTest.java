@@ -79,7 +79,7 @@ class ProjectManagerServiceTest{
 
     @Test
     void loginThrowsExceptionWhenEmailIsUnkown(){
-        String email = "villa@denmindeseje.dk";
+        String email = "villa@denmindreseje.dk";
         String password ="Test1234";
 
         when(projectManagerRepository.findByEmail(email))
